@@ -52,7 +52,7 @@ export class AuthorizationService {
         observer.complete();
       });
     });
-  }
+  } /* */
 
   signIn(email, password) { 
 
