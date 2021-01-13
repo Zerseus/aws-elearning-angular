@@ -29,7 +29,7 @@ export class RestApiComponent implements OnInit {
         return;
       }
       const token = session.getIdToken().getJwtToken();      
-      const headers = { Authorization: token };
+      const headers = { Authorization: token, 'Access-Control-Allow-Credentials': true };
     /*  const headers = new Headers();
       headers.append('Authorization', token);      
       var that = this;
@@ -42,7 +42,7 @@ export class RestApiComponent implements OnInit {
         const headers = new Headers();
         headers.append('Authorization', token);   */     
         console.log(token);
-        this.http.post<any>('https://vt198qxo2j.execute-api.us-east-1.amazonaws.com/prod/user', { headers: headers })
+        this.http.post<any>('https://vt198qxo2j.execute-api.us-east-1.amazonaws.com/prod/user', { headers: headers }, { withCredentials: true })
           .subscribe(
           data => {
             console.log(Response);
